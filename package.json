@@ -1,6 +1,6 @@
 {
   "name": "angular-iscroll-probe",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A version of angular-iscroll that depends on iscroll-probe.js instead of iscroll.js.",
   "main": "dist/lib/angular-iscroll.js",
   "scripts": {
