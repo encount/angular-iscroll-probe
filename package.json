@@ -1,5 +1,5 @@
 {
-  "name": "angular-iscroll",
+  "name": "angular-iscroll-probe",
   "version": "1.2.4",
   "description": "AngularJS module that enables iScroll 5 functionality, wrapping it in an easy-to-use directive.",
   "main": "dist/lib/angular-iscroll.js",
@@ -68,7 +68,8 @@
   },
   "browser": {
     "angular-messages": "./node_modules/angular-messages/angular-messages.js",
-    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
+    "iscroll": "./node_modules/iscroll/build/iscroll-probe.js"
   },
   "browserify": {
     "transform": [
