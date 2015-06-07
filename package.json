@@ -68,8 +68,7 @@
   },
   "browser": {
     "angular-messages": "./node_modules/angular-messages/angular-messages.js",
-    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
-    "iscroll": "./node_modules/iscroll/build/iscroll-probe.js"
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
   },
   "browserify": {
     "transform": [
