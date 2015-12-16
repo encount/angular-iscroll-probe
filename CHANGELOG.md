@@ -1,5 +1,8 @@
 # Change Log
 
+## [v2.0.0](https://github.com/OnLiveResearch/angular-iscroll-probe/tree/v2.0.0) (2015-12-16)
+[Full Changelog](https://github.com/OnLiveResearch/angular-iscroll-probe/compare/v1.3.3...v2.0.0)
+
 ## [v1.3.3](https://github.com/OnLiveResearch/angular-iscroll-probe/tree/v1.3.3) (2015-05-23)
 [Full Changelog](https://github.com/OnLiveResearch/angular-iscroll-probe/compare/v1.2.5...v1.3.3)
 
