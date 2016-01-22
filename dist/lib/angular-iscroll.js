@@ -1,5 +1,5 @@
 /**
- * @license angular-iscroll v3.1.0, 2016-01-22T22:29:52+0100
+ * @license angular-iscroll-probe v3.1.0, 2016-01-22T23:25:26+0100
  * (c) 2016 Martin Thorsen Ranang <mtr@ranang.org>
  * License: MIT
  */
@@ -17,6 +17,7 @@
 }(this, function (IScroll, platform) {
     'use strict';
 
+    iscroll.$inject = ["$rootScope", "$timeout", "$interval", "iScrollSignals", "iScrollService"];
     var signals = {
             disabled: 'iscroll:disabled',
             enabled: 'iscroll:enabled',
@@ -89,6 +90,7 @@
     }
 
     function iScrollServiceProvider() {
+        iScrollService.$inject = ["$rootScope", "iScrollSignals"];
         var defaultOptions = {
             iScroll: {
                 /**
@@ -200,7 +202,6 @@
                 refresh: _refresh
             };
         }
-        iScrollService.$inject = ["$rootScope", "iScrollSignals"];
 
         //noinspection JSUnusedGlobalSymbols
         this.$get = iScrollService;
@@ -340,7 +341,6 @@
             }
         };
     }
-    iscroll.$inject = ["$rootScope", "$timeout", "$interval", "iScrollSignals", "iScrollService"];
 
     return angular.module('angular-iscroll', [])
         .directive('iscroll', iscroll)
