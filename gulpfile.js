@@ -33,7 +33,12 @@ gulp.task('scss', function () {
         .pipe(gulp.dest('dist/lib/scss'));
 });
 
-gulp.task('lib', function () {
+gulp.task('iscroll-probe', function () {
+    return gulp.src('node_modules/iscroll/build/iscroll-probe.js')
+        .pipe(gulp.dest(paths.lib.dest));
+});
+
+gulp.task('lib', ['iscroll-probe'], function () {
     var now = _getNow();
 
     return gulp.src(paths.lib.src)

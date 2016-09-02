@@ -4,7 +4,7 @@
     if (typeof define === 'function' && define.amd) {
         define(['iscroll', 'platform'], factory);
     } else if (typeof exports === 'object') {
-        module.exports = factory(require('iscroll'), require('platform'));
+        module.exports = factory(require('./iscroll-probe'), require('platform'));
     } else {
         // Browser globals (root is window)
         root.angularIscroll = factory(root.IScroll, root.platform);
