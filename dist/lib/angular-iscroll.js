@@ -1,5 +1,5 @@
 /**
- * @license angular-iscroll v3.5.1, 2017-06-13T10:57:52+0200
+ * @license angular-iscroll-probe v3.5.1, 2017-06-13T11:05:19+0200
  * (c) 2017 Martin Thorsen Ranang <mtr@ranang.org>
  * License: MIT
  */
@@ -9,7 +9,7 @@
     if (typeof define === 'function' && define.amd) {
         define(['iscroll', 'platform'], factory);
     } else if (typeof exports === 'object') {
-        module.exports = factory(require('iscroll'), require('platform'));
+        module.exports = factory(require('./iscroll-probe'), require('platform'));
     } else {
         // Browser globals (root is window)
         root.angularIscroll = factory(root.IScroll, root.platform);
