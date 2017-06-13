@@ -12,6 +12,7 @@ var bump = require('gulp-bump'),
     gulpNgAnnotate = require('gulp-ng-annotate'),
     pkg = require('./package.json'),
     path = require('path'),
+    pump = require('pump'),
     remember = require('gulp-remember'),
     rename = require('gulp-rename'),
     tag_version = require('gulp-tag-version'),
@@ -38,33 +39,35 @@ gulp.task('iscroll-probe', function () {
         .pipe(gulp.dest(paths.lib.dest));
 });
 
-gulp.task('lib', ['iscroll-probe'], function () {
+gulp.task('lib', ['iscroll-probe'], function (cb) {
     var now = _getNow();
 
-    return gulp.src(paths.lib.src)
-        .pipe(cached('lib'))            // Only pass through changed files.
-        .pipe(jshint())
-        .pipe(header('/**\n' +
-        ' * @license <%= pkg.name %> v<%= pkg.version %>, <%= now %>\n' +
-        ' * (c) <%= years %> <%= pkg.author.name %> <<%= pkg.author.email %>>\n' +
-        ' * License: <%= pkg.license %>\n' +
-        ' */\n', {
-            now: dateFormat(now, "isoDateTime"),
-            years: dateFormat(now, "yyyy"),
-            pkg: pkg
-        }))
-        .pipe(footer('\n'))
-        .pipe(remember('lib'))          // Add back all files to the stream.
-        .pipe(concat('angular-iscroll.js')) // Do things that require all files.
-        .pipe(gulpNgAnnotate())
-        .pipe(gulp.dest(paths.lib.dest))
-        .pipe(uglify({
-            preserveComments: 'some'
-        }))
-        .pipe(rename({
-            extname: '.min.js'
-        }))
-        .pipe(gulp.dest(paths.lib.dest));
+    pump([
+            gulp.src(paths.lib.src),
+            cached('lib'),            // Only pass through changed files.
+            jshint(),
+            header('/**\n' +
+                ' * @license <%= pkg.name %> v<%= pkg.version %>, <%= now %>\n' +
+                ' * (c) <%= years %> <%= pkg.author.name %> <<%= pkg.author.email %>>\n' +
+                ' * License: <%= pkg.license %>\n' +
+                ' */\n', {
+                now: dateFormat(now, "isoDateTime"),
+                years: dateFormat(now, "yyyy"),
+                pkg: pkg
+            }),
+            footer('\n'),
+            remember('lib'),          // Add back all files to the stream.
+            concat('angular-iscroll.js'), // Do things that require all files.
+            gulpNgAnnotate(),
+            gulp.dest(paths.lib.dest),
+            uglify({output: {comments: /^!|@preserve|@license|@cc_on/i}}),
+            rename({
+                extname: '.min.js'
+            }),
+            gulp.dest(paths.lib.dest)
+        ],
+        cb
+    );
 
 });
 
@@ -86,7 +89,7 @@ gulp.task('default', ['scss', 'lib']);
 function increaseVersion(importance) {
     // Get all the files to bump version in.
     return gulp.src(['./package.json', './bower.json'])
-        // Bump the version number in those files.
+    // Bump the version number in those files.
         .pipe(bump({type: importance}))
         // Save it back to filesystem.
         .pipe(gulp.dest('./'))
