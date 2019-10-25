@@ -39,7 +39,7 @@ gulp.task('iscroll-probe', function () {
         .pipe(gulp.dest(paths.lib.dest));
 });
 
-gulp.task('lib', ['iscroll-probe'], function (cb) {
+gulp.task('lib', gulp.series(['iscroll-probe', function distLib(cb) {
     var now = _getNow();
 
     pump([
@@ -69,7 +69,7 @@ gulp.task('lib', ['iscroll-probe'], function (cb) {
         cb
     );
 
-});
+}]));
 
 gulp.task('watch', function () {
     var watcher = gulp.watch(paths.lib.src, ['lib']);
