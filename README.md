@@ -1,25 +1,25 @@
-# angular-iscroll
+# angular-iscroll-probe
 AngularJS module that enables iScroll 5 functionality, wrapping it in an easy-to-use directive
 
 ## Install
 
-Install the [angular-iscroll NPM package](https://www.npmjs.com/package/angular-iscroll)
+Install the [angular-iscroll-probe NPM package](https://www.npmjs.com/package/angular-iscroll-probe)
 ```bash
-npm install --save angular-iscroll
+npm install --save angular-iscroll-probe
 ```
 
 Install through Yarn
 ```bash
-yarn add angular-iscroll
+yarn add angular-iscroll-probe
 ```
 
 Or, to check out a development version, start by cloning the repository, by
 ```bash
-git clone git@github.com:mtr/angular-iscroll.git
+git clone git@github.com/OnLiveResearch/angular-iscroll-probe.git
 ```
 If you don't use `yarn` you may run `npm run-script [command]` instead of `yarn [command]`.  So, to install the necessary dependencies:
 ```bash
-cd angular-iscroll/
+cd angular-iscroll-probe/
 yarn install
 yarn build          # or `npm run-script build`
 ```
@@ -50,13 +50,13 @@ You may have a look at [core-layout](http://mtr.github.io/core-layout/examples/)
 In the following, `IScroll` (with capital 'I' and 'S') refers to instances 
 of the [iScroll Javascript library](http://iscrolljs.com/) that this package provides an AngularJS wrapper for. 
 
-The main usage pattern for `angular-iscroll` is to define a dependency on the `angular-iscroll` module in your AngularJS app.  For example: 
+The main usage pattern for `angular-iscroll-probe` is to define a dependency on the `angular-iscroll` module in your AngularJS app.  For example: 
 ```js
 angular.module('myApp', ['angular-iscroll']);
 ```
 or, in a Browserify-based code base:
 ```js
-angular.module('myApp', [require('angular-iscroll').name]);
+angular.module('myApp', [require('angular-iscroll-probe')]);
 ```
 
 The `angular-iscroll` module includes both a directive, `iscroll`, and a service, `iScrollService`, which gives you access to and control over a shared, global state of whether to enable, disable, or refresh the `IScroll` instances for each `iscroll` directive instance.
@@ -87,7 +87,7 @@ thereby providing a way to globally change the meaning of the `iscroll-wrapper` 
 
 Furthermore, the global iScroll state exposed by the service should be changed through the service's `enable([signalOnly])`, `disable([signalOnly])`, and `toggle([signalOnly])` methods, where each method will change the state accordingly, and then emit a corresponding signal from `$rootScope` that gets picked up and handled by the available `angular-iscroll` directive instances.  If the `signalOnly` flag is `true`, then the state is not changed by the service method, but the signal is sent nonetheless.  If the directives receive an `iscroll:disabled` signal, they will destroy any existing `IScroll` instances, and if they receive an `iscroll:enabled` signal, they will create a new `IScroll` instances per directive instance if it doesn't already exist.
 
-It should also be noted that during instantiation, in the directive's post-link phase, the `iscroll` directive will check the `iScrollService`'s `useIScroll` state to decide whether or not it will create an actual `IScroll` instance.  Consequently, if you would like to create an AngularJS solution that uses iScroll only on, for example, iOS devices, you should determine the current browser type early, probably inside the app controller's [configuration block](https://docs.angularjs.org/guide/module#module-loading-dependencies), and set the service's `useIscroll` state accordingly.  Please note that `angular-iscroll` does not contain any code to detect which browser or platform it is currently running on, which is a separate, complex task better solved by specialized libraries, like [platform.js](https://github.com/bestiejs/platform.js).
+It should also be noted that during instantiation, in the directive's post-link phase, the `iscroll` directive will check the `iScrollService`'s `useIScroll` state to decide whether or not it will create an actual `IScroll` instance.  Consequently, if you would like to create an AngularJS solution that uses iScroll only on, for example, iOS devices, you should determine the current browser type early, probably inside the app controller's [configuration block](https://docs.angularjs.org/guide/module#module-loading-dependencies), and set the service's `useIscroll` state accordingly.  Please note that `angular-iscroll-probe` does not contain any code to detect which browser or platform it is currently running on, which is a separate, complex task better solved by specialized libraries, like [platform.js](https://github.com/bestiejs/platform.js).
 
 
 ### Manual Interaction with Each Directive's IScroll Instance
@@ -178,7 +178,7 @@ The configuration you provide this way will serve as the updated global default 
 Please note that the above example relies on [ng-annotate](https://www.npmjs.com/package/ng-annotate) for adding AngularJS dependency-injection annotations during builds, as indicated by the `/* @ngInject */` comment.
 
 ## Support ##
-Thanks to a generous “free for Open Source” sponsorship from [BrowserStack](https://www.browserstack.com) I've been able to test [core-layout](http://mtr.github.io/core-layout/examples/), and thereby [angular-iscroll](https://github.com/mtr/angular-iscroll/), with a plethora of devices and browsers.  The following browsers and devices has been tested successfully:
+Thanks to a generous “free for Open Source” sponsorship from [BrowserStack](https://www.browserstack.com) I've been able to test [core-layout](http://mtr.github.io/core-layout/examples/), and thereby [angular-iscroll-probe](https://github.com/OnLiveResearch/angular-iscroll-probe/), with a plethora of devices and browsers.  The following browsers and devices has been tested successfully:
 
 * Desktop
   * Chrome 16–48 on OS X 10.10
@@ -218,4 +218,4 @@ During testing, the [core-layout](http://mtr.github.io/core-layout/examples/) de
   Error message: `Object doesn't support this property or method`.
 * Safari 3 with iOS 3 on iPhone 3GS
 
-This does not necessarily mean that `angular-iscroll` itself breaks in the same browsers, but the demo code did.
+This does not necessarily mean that `angular-iscroll-probe` itself breaks in the same browsers, but the demo code did.
