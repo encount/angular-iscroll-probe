@@ -15,7 +15,7 @@ yarn add angular-iscroll-probe
 
 Or, to check out a development version, start by cloning the repository, by
 ```bash
-git clone git@github.com/OnLiveResearch/angular-iscroll-probe.git
+git clone git@github.com:OnLiveResearch/angular-iscroll-probe.git
 ```
 If you don't use `yarn` you may run `npm run-script [command]` instead of `yarn [command]`.  So, to install the necessary dependencies:
 ```bash
