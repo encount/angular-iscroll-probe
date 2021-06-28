@@ -1,6 +1,6 @@
 /*!
- * @license angular-iscroll-probe v3.8.3, 2019-11-07T12:35:48+0100
- * (c) 2019 Martin Thorsen Ranang <mtr@ranang.org>
+ * @license angular-iscroll-probe v4.0.0, 2021-06-28T15:01:56+0200
+ * (c) 2021 Martin Thorsen Ranang <mtr@ranang.org>
  * License: MIT
  */
 !function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e(require("angular")):"function"==typeof define&&define.amd?define(["angular"],e):"object"==typeof exports?exports.angularIscroll=e(require("angular")):t.angularIscroll=e(t.angular)}(window,(function(t){return function(t){var e={};function i(s){if(e[s])return e[s].exports;var o=e[s]={i:s,l:!1,exports:{}};return t[s].call(o.exports,o,o.exports,i),o.l=!0,o.exports}return i.m=t,i.c=e,i.d=function(t,e,s){i.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:s})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var s=Object.create(null);if(i.r(s),Object.defineProperty(s,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)i.d(s,o,function(e){return t[e]}.bind(null,o));return s},i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,"a",e),e},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},i.p="",i(i.s=3)}([function(e,i){e.exports=t},function(t,e,i){(function(t,s){var o;
